@@ -9,11 +9,10 @@ root.title("Tabulka")
 my_menu = Menu(root)
 root.config(menu=my_menu)
 config_menu = Menu(my_menu)
-my_menu.add_cascade(label="Option", menu=config_menu)
-config_menu.add_command(label="help", command=help_program)
-config_menu.add_command(label="actual data", command=actual_data)
-config_menu.add_command(label="save", command=new_record)
-config_menu.add_command(label="exit", command=sys.exit)
+my_menu.add_cascade(label="File", menu=config_menu)
+config_menu.add_command(label="")
+config_menu.add_separator()
+config_menu.add_command(label="Exit", command=sys.exit)
 
 def create_table(data, parent):
     # Vytvoření Treeview widgetu
