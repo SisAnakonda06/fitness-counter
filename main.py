@@ -1,6 +1,7 @@
 import tkinter as tk
 import numpy as np
 from tkinter import ttk
+import pytable
 
 def create_table(data, parent):
     # Vytvoření Treeview widgetu
@@ -10,20 +11,20 @@ def create_table(data, parent):
     # Vytvoření nadpisů sloupců
     for i, column in enumerate(columns):
         table.heading(column, text=column)
-
+    
     # Vypsání hodnot do tabulky
     for i in range(data.shape[0]):
         values = [f"Row {i+1}"] + list(data[i])
         table.insert("", "end", values=values)
-
+    
     # Nastavení minimální velikosti sloupce
-    table.column("#0", width=50, minwidth=50)
+    table.column("#0", width=10, minwidth=10)
 
     # Vrácení widgetu
     return table
 
 # Testovací data
-data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+data = pytable.load("numpy")
 
 # Vytvoření okna s tabulkou
 window = tk.Tk()
